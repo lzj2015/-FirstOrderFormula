@@ -1,7 +1,8 @@
 package com.lzj;
 
-import com.lzj.antrls.LzjAntrlLexer;
-import com.lzj.antrls.LzjAntrlParser;
+import com.lzj.antlrs.LzjAntlrLexer;
+
+import com.lzj.antlrs.LzjAntlrParser;
 import com.lzj.common.LParseListener;
 import com.lzj.utils.Utils;
 import javafx.application.Application;
@@ -26,11 +27,11 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        LzjAntrlLexer l = Utils.getLexer("./test.txt");
+        LzjAntlrLexer l = Utils.getLexer("./test.txt");
         CommonTokenStream tokens = new CommonTokenStream(l);
-        LzjAntrlParser parser = new LzjAntrlParser(tokens);
+        LzjAntlrParser parser = new LzjAntlrParser(tokens);
         parser.setBuildParseTree(true);
-        LzjAntrlParser.ProgramContext root = parser.program();
+        LzjAntlrParser.ProgramContext root = parser.program();
         System.out.println(Utils.getAreasVariable(root).toString());  // using first
 
        Trees.inspect(root, parser);

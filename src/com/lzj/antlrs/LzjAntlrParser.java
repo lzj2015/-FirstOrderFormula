@@ -1,5 +1,5 @@
-// Generated from LzjAntrl.g by ANTLR 4.5.3
-package com.lzj.antrls;
+// Generated from LzjAntlr.g by ANTLR 4.5.3
+package com.lzj.antlrs;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class LzjAntrlParser extends Parser {
+public class LzjAntlrParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.5.3", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -73,7 +73,7 @@ public class LzjAntrlParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "LzjAntrl.g"; }
+	public String getGrammarFileName() { return "LzjAntlr.g"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -84,7 +84,7 @@ public class LzjAntrlParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public LzjAntrlParser(TokenStream input) {
+	public LzjAntlrParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -107,11 +107,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterProgram(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterProgram(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitProgram(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitProgram(this);
 		}
 	}
 
@@ -172,19 +172,19 @@ public class LzjAntrlParser extends Parser {
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode LContent() { return getToken(LzjAntrlParser.LContent, 0); }
-		public TerminalNode RContent() { return getToken(LzjAntrlParser.RContent, 0); }
+		public TerminalNode LContent() { return getToken(LzjAntlrParser.LContent, 0); }
+		public TerminalNode RContent() { return getToken(LzjAntlrParser.RContent, 0); }
 		public TagStateContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tagState; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterTagState(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterTagState(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitTagState(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitTagState(this);
 		}
 	}
 
@@ -250,11 +250,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_tag; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterTag(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterTag(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitTag(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitTag(this);
 		}
 	}
 
@@ -307,11 +307,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_key; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterKey(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterKey(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitKey(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitKey(this);
 		}
 	}
 
@@ -361,11 +361,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_exp; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterExp(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterExp(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitExp(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitExp(this);
 		}
 	}
 
@@ -416,11 +416,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_to_op; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterTo_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterTo_op(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitTo_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitTo_op(this);
 		}
 	}
 
@@ -464,11 +464,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_term; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterTerm(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterTerm(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitTerm(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitTerm(this);
 		}
 	}
 
@@ -519,11 +519,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_or_op; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterOr_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterOr_op(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitOr_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitOr_op(this);
 		}
 	}
 
@@ -567,11 +567,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_factor; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterFactor(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterFactor(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitFactor(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitFactor(this);
 		}
 	}
 
@@ -622,11 +622,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_and_op; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterAnd_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterAnd_op(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitAnd_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitAnd_op(this);
 		}
 	}
 
@@ -661,22 +661,22 @@ public class LzjAntrlParser extends Parser {
 		public LogicStateContext logicState() {
 			return getRuleContext(LogicStateContext.class,0);
 		}
-		public TerminalNode LContent() { return getToken(LzjAntrlParser.LContent, 0); }
+		public TerminalNode LContent() { return getToken(LzjAntlrParser.LContent, 0); }
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode RContent() { return getToken(LzjAntrlParser.RContent, 0); }
+		public TerminalNode RContent() { return getToken(LzjAntlrParser.RContent, 0); }
 		public OtherContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_other; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterOther(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterOther(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitOther(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitOther(this);
 		}
 	}
 
@@ -740,11 +740,11 @@ public class LzjAntrlParser extends Parser {
 		public PredicateContext predicate() {
 			return getRuleContext(PredicateContext.class,0);
 		}
-		public TerminalNode LContent() { return getToken(LzjAntrlParser.LContent, 0); }
+		public TerminalNode LContent() { return getToken(LzjAntlrParser.LContent, 0); }
 		public VarContext var() {
 			return getRuleContext(VarContext.class,0);
 		}
-		public TerminalNode RContent() { return getToken(LzjAntrlParser.RContent, 0); }
+		public TerminalNode RContent() { return getToken(LzjAntlrParser.RContent, 0); }
 		public Not_opContext not_op() {
 			return getRuleContext(Not_opContext.class,0);
 		}
@@ -754,11 +754,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_preState; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterPreState(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterPreState(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitPreState(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitPreState(this);
 		}
 	}
 
@@ -815,11 +815,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_logicState; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterLogicState(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterLogicState(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitLogicState(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitLogicState(this);
 		}
 	}
 
@@ -857,18 +857,18 @@ public class LzjAntrlParser extends Parser {
 	}
 
 	public static class PredicateContext extends ParserRuleContext {
-		public TerminalNode Lower() { return getToken(LzjAntrlParser.Lower, 0); }
+		public TerminalNode Lower() { return getToken(LzjAntlrParser.Lower, 0); }
 		public PredicateContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_predicate; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterPredicate(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterPredicate(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitPredicate(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitPredicate(this);
 		}
 	}
 
@@ -894,19 +894,19 @@ public class LzjAntrlParser extends Parser {
 	}
 
 	public static class VarContext extends ParserRuleContext {
-		public TerminalNode Upper() { return getToken(LzjAntrlParser.Upper, 0); }
-		public TerminalNode Digit() { return getToken(LzjAntrlParser.Digit, 0); }
+		public TerminalNode Upper() { return getToken(LzjAntlrParser.Upper, 0); }
+		public TerminalNode Digit() { return getToken(LzjAntlrParser.Digit, 0); }
 		public VarContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_var; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterVar(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterVar(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitVar(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitVar(this);
 		}
 	}
 
@@ -944,11 +944,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_compare_op; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterCompare_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterCompare_op(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitCompare_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitCompare_op(this);
 		}
 	}
 
@@ -986,11 +986,11 @@ public class LzjAntrlParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_not_op; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).enterNot_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).enterNot_op(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LzjAntrlListener ) ((LzjAntrlListener)listener).exitNot_op(this);
+			if ( listener instanceof LzjAntlrListener ) ((LzjAntlrListener)listener).exitNot_op(this);
 		}
 	}
 

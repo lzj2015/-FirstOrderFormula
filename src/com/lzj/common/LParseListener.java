@@ -1,37 +1,32 @@
 package com.lzj.common;
 
-import com.lzj.antrls.LzjAntrlBaseListener;
-import com.lzj.antrls.LzjAntrlParser;
+import com.lzj.antlrs.LzjAntlrBaseListener;
+import com.lzj.antlrs.LzjAntlrParser;
 import com.lzj.entity.Area;
-import com.lzj.entity.TagVar;
 import com.lzj.utils.Utils;
 import org.antlr.v4.runtime.RuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * Created by lzj on 2016/8/1.
+ *
  */
-public class LParseListener extends LzjAntrlBaseListener {
+public class LParseListener extends LzjAntlrBaseListener {
 
     public ParseTreeProperty<String> values = new ParseTreeProperty<>();
 
-    private Stack<Area> areaStack = new Stack<>();
-    private int statementCount = 0;//note the statements count;
-    private HashMap<String, TagVar> tagMap = new HashMap<>();
 
-    List<String> allSentences = new ArrayList<>();
+    public static List<String> allSentences = new ArrayList<>();
 
     @Override
-    public void exitTagState(LzjAntrlParser.TagStateContext ctx) {
+    public void exitTagState(LzjAntlrParser.TagStateContext ctx) {
         super.exitTagState(ctx);
         boolean flag = false;
         List<String> sentences = new ArrayList<>();
-        LzjAntrlParser.TagContext tag = ctx.tag();
+        LzjAntlrParser.TagContext tag = ctx.tag();
         sentences.add(values.get(ctx.exp()));
 
         for (int i = 0; i < tag.var().size(); i++) {
@@ -53,7 +48,7 @@ public class LParseListener extends LzjAntrlBaseListener {
         StringBuilder builder = combineSentences(flag, sentences);
 
         // there will add the sentences to list before finish this statement otherwise deliver the sentence to parent
-        if (ctx.getParent() instanceof LzjAntrlParser.OtherContext) {
+        if (ctx.getParent() instanceof LzjAntlrParser.OtherContext) {
             values.put(ctx, builder.toString());
         } else {
             builder.append(";");
@@ -105,7 +100,7 @@ public class LParseListener extends LzjAntrlBaseListener {
      * @param tempList
      * @param exp
      */
-    private void instantiationVar(LzjAntrlParser.TagContext tag, int i, List<String> tempList, char[] exp) {
+    private void instantiationVar(LzjAntlrParser.TagContext tag, int i, List<String> tempList, char[] exp) {
         for (Area area : Utils.areas) {
             StringBuilder builder = new StringBuilder();
             for (char temp : exp) {
@@ -121,13 +116,13 @@ public class LParseListener extends LzjAntrlBaseListener {
 
 
     @Override
-    public void exitProgram(LzjAntrlParser.ProgramContext ctx) {
+    public void exitProgram(LzjAntlrParser.ProgramContext ctx) {
         super.exitProgram(ctx);
         System.out.println(allSentences.toString());
     }
 
     @Override
-    public void exitOther(LzjAntrlParser.OtherContext ctx) {
+    public void exitOther(LzjAntlrParser.OtherContext ctx) {
         super.exitOther(ctx);
         if (ctx.preState() != null) {
             values.put(ctx, ctx.preState().getText());
@@ -139,19 +134,19 @@ public class LParseListener extends LzjAntrlBaseListener {
     }
 
     @Override
-    public void exitFactor(LzjAntrlParser.FactorContext ctx) {
+    public void exitFactor(LzjAntlrParser.FactorContext ctx) {
         super.exitFactor(ctx);
         deliverVar(ctx);
     }
 
     @Override
-    public void exitTerm(LzjAntrlParser.TermContext ctx) {
+    public void exitTerm(LzjAntlrParser.TermContext ctx) {
         super.exitTerm(ctx);
         deliverVar(ctx);
     }
 
     @Override
-    public void exitExp(LzjAntrlParser.ExpContext ctx) {
+    public void exitExp(LzjAntlrParser.ExpContext ctx) {
         super.exitExp(ctx);
         deliverVar(ctx);
     }

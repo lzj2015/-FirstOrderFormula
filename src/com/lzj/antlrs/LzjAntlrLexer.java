@@ -1,5 +1,5 @@
-// Generated from LzjAntrl.g by ANTLR 4.5.3
-package com.lzj.antrls;
+// Generated from LzjAntlr.g by ANTLR 4.5.3
+package com.lzj.antlrs;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -10,7 +10,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class LzjAntrlLexer extends Lexer {
+public class LzjAntlrLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.5.3", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -72,13 +72,13 @@ public class LzjAntrlLexer extends Lexer {
 	}
 
 
-	public LzjAntrlLexer(CharStream input) {
+	public LzjAntlrLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "LzjAntrl.g"; }
+	public String getGrammarFileName() { return "LzjAntlr.g"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

@@ -1,5 +1,5 @@
 
-grammar LzjAntrl;
+grammar LzjAntlr;
 program :  ( (tagState | exp) ';')*;   
 tagState: tag (LContent)? exp (RContent)? ;
 tag : ( key var )+;

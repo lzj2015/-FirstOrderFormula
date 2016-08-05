@@ -1,7 +1,7 @@
 package com.lzj.utils;
 
-import com.lzj.antrls.LzjAntrlLexer;
-import com.lzj.antrls.LzjAntrlParser;
+import com.lzj.antlrs.LzjAntlrLexer;
+import com.lzj.antlrs.LzjAntlrParser;
 import com.lzj.entity.Area;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -11,7 +11,6 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -45,12 +44,12 @@ public class Utils {
      * @param filePath
      * @return
      */
-    public static LzjAntrlLexer getLexer(String filePath) {
+    public static LzjAntlrLexer getLexer(String filePath) {
         ANTLRInputStream inputStream;
-        LzjAntrlLexer lexer = null;
+        LzjAntlrLexer lexer = null;
         try {
             inputStream = new ANTLRFileStream(filePath);
-            lexer = new LzjAntrlLexer(inputStream);
+            lexer = new LzjAntlrLexer(inputStream);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -71,8 +70,8 @@ public class Utils {
         /**
          *   we know the areas variable that does not has the tag.so we walk the tree and skip the statement which has tag
          */
-        if (root instanceof LzjAntrlParser.ProgramContext) {
-            for (LzjAntrlParser.ExpContext state : ((LzjAntrlParser.ProgramContext) root).exp()) {
+        if (root instanceof LzjAntlrParser.ProgramContext) {
+            for (LzjAntlrParser.ExpContext state : ((LzjAntlrParser.ProgramContext) root).exp()) {
                 getAreasVariable(state);
             }
             return areas;
@@ -81,8 +80,8 @@ public class Utils {
         /**
          *   when we go to the variable we will save the variable
          //         */
-        if (root instanceof LzjAntrlParser.PreStateContext) {
-            LzjAntrlParser.PreStateContext ctx = (LzjAntrlParser.PreStateContext) root;
+        if (root instanceof LzjAntlrParser.PreStateContext) {
+         LzjAntlrParser.PreStateContext ctx = (LzjAntlrParser.PreStateContext) root;
             Area area = new Area();
             if (ctx.not_op() != null) {
                 area.not = ctx.not_op().getText();
@@ -105,7 +104,5 @@ public class Utils {
         return areas;
     }
 
-    public void gets(LinkedList<Area> list){
-    }
 
 }
