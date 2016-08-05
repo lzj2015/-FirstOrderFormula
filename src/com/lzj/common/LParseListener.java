@@ -12,7 +12,6 @@ import java.util.List;
 
 /**
  * Created by lzj on 2016/8/1.
- *
  */
 public class LParseListener extends LzjAntlrBaseListener {
 
@@ -21,86 +20,48 @@ public class LParseListener extends LzjAntlrBaseListener {
 
     public static List<String> allSentences = new ArrayList<>();
 
+
     @Override
     public void exitTagState(LzjAntlrParser.TagStateContext ctx) {
         super.exitTagState(ctx);
-        boolean flag = false;
-        List<String> sentences = new ArrayList<>();
+
         LzjAntlrParser.TagContext tag = ctx.tag();
-        sentences.add(values.get(ctx.exp()));
+        String temp = values.get(ctx.exp());
 
         for (int i = 0; i < tag.var().size(); i++) {
-            List<String> tempList = new ArrayList<>();
-            for (String sentence : sentences) {
-                char[] exp = sentence.toCharArray();  // ergodic every sentences and to find the same tag and change their variable
-                if (tag.key(i).getText().equals("$")) { //and op
-                    flag = true;
-                    instantiationVar(tag, i, tempList, exp);
-                } else {// %   or op
-                    flag = false;
-                    instantiationVar(tag, i, tempList, exp);
-                }
+            boolean flag;
+            if (tag.key(i).getText().equals("$")) { //and op
+                flag = true;
+            } else {// %   or op
+                flag = false;
             }
-            sentences = tempList;
+            temp = instantiationVar(tag, i, temp.toCharArray(), flag);
         }
-
-
-        StringBuilder builder = combineSentences(flag, sentences);
+        temp = "( " + temp + " )";
 
         // there will add the sentences to list before finish this statement otherwise deliver the sentence to parent
         if (ctx.getParent() instanceof LzjAntlrParser.OtherContext) {
-            values.put(ctx, builder.toString());
+            values.put(ctx,  temp);
         } else {
-            builder.append(";");
-            allSentences.add(builder.toString());
+            temp += ";";
+            allSentences.add(temp);
         }
-
-
     }
 
-
-    /**
-     * combine the sentences
-     * if the tag is all we use the && to combine the sentences
-     * else if the tag is exists we use the || to combine the sentences
-     *
-     * @param flag      all otherwise exists
-     * @param sentences
-     * @return combined sentences
-     */
-    private StringBuilder combineSentences(boolean flag, List<String> sentences) {
-        StringBuilder builder = new StringBuilder();
-        if (flag) {
-            for (String temp : sentences) {
-                builder.append(" && ");
-                builder.append("( ");
-                builder.append(temp);
-                builder.append(" )");
-            }
-        } else {
-            for (String temp : sentences) {
-                builder.append(" || ");
-                builder.append("( ");
-                builder.append(temp);
-                builder.append(" )");
-            }
-        }
-        //to delete the  redundant symbol
-        if (builder.length() > 0) {
-            builder.delete(0, 4);
-        }
-        return builder;
-    }
 
     /**
      * to instantiation the variable from the areas variable and then add the sentence to list
+     * combine the sentences
+     * if the tag is all we use the && to combine the sentences
+     * else if the tag is exists we use the || to combine the sentences
      *
      * @param tag
      * @param i
      * @param tempList
      * @param exp
      */
-    private void instantiationVar(LzjAntlrParser.TagContext tag, int i, List<String> tempList, char[] exp) {
+    private String instantiationVar(LzjAntlrParser.TagContext tag, int i, char[] exp, boolean flag) {
+        StringBuilder tempBulider = new StringBuilder();
         for (Area area : Utils.areas) {
             StringBuilder builder = new StringBuilder();
             for (char temp : exp) {
@@ -110,8 +71,24 @@ public class LParseListener extends LzjAntlrBaseListener {
                     builder.append(temp);
                 }
             }
-            tempList.add(builder.toString());
+
+            if (flag) {
+                tempBulider.append(" && ");
+                tempBulider.append("( ");
+                tempBulider.append(builder.toString());
+                tempBulider.append(" )");
+            } else {
+                tempBulider.append(" || ");
+                tempBulider.append("( ");
+                tempBulider.append(builder.toString());
+                tempBulider.append(" )");
+            }
         }
+        //to delete the  redundant symbol
+        if (tempBulider.length() > 0) {
+            tempBulider.delete(0, 4);
+        }
+        return tempBulider.toString();
     }
 
 
@@ -148,6 +125,9 @@ public class LParseListener extends LzjAntlrBaseListener {
     @Override
     public void exitExp(LzjAntlrParser.ExpContext ctx) {
         super.exitExp(ctx);
+        if (ctx.getParent() instanceof LzjAntlrParser.ProgramContext) {
+            allSentences.add(ctx.getText() + ";");
+        }
         deliverVar(ctx);
     }
 

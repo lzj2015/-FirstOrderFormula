@@ -1,7 +1,5 @@
 package com.lzj;
 
-import com.lzj.antlrs.LzjAntlrLexer;
-
 import com.lzj.antlrs.LzjAntlrParser;
 import com.lzj.common.LParseListener;
 import com.lzj.utils.Utils;
@@ -11,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.antlr.v4.gui.Trees;
-import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 public class Main extends Application {
@@ -26,22 +23,24 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-
-        LzjAntlrLexer l = Utils.getLexer("./test.txt");
-        CommonTokenStream tokens = new CommonTokenStream(l);
-        LzjAntlrParser parser = new LzjAntlrParser(tokens);
-        parser.setBuildParseTree(true);
+//0
+        LzjAntlrParser parser = Utils.getContext(Utils.getLexer("./test.txt"));
         LzjAntlrParser.ProgramContext root = parser.program();
-        System.out.println(Utils.getAreasVariable(root).toString());  // using first
+        Utils.getAreasVariable(root);  // using first
 
-       Trees.inspect(root, parser);
-
+        Trees.inspect(root, parser);
+//1
         LParseListener lParseListener = new LParseListener();
         ParseTreeWalker walker = new ParseTreeWalker();
         walker.walk(lParseListener, root);
-
+//2
+        LzjAntlrParser parserVar = Utils.getContext(Utils.getLexer(LParseListener.allSentences));
+        LzjAntlrParser.ProgramContext rootVar  = parserVar.program();
+       // Trees.inspect(rootVar, parserVar);
 
 
         // launch(args);
     }
+
+
 }

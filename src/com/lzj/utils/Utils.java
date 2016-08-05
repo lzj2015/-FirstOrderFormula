@@ -5,6 +5,7 @@ import com.lzj.antlrs.LzjAntlrParser;
 import com.lzj.entity.Area;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -57,6 +58,21 @@ public class Utils {
         return lexer;
     }
 
+    /**
+     *   read from string list
+     * @param sentences
+     * @return
+     */
+    public static LzjAntlrLexer getLexer(List<String> sentences){
+        StringBuilder b = new StringBuilder();
+        for (String sentence:sentences){
+            b.append(sentence);
+        }
+        ANTLRInputStream inputStream = new ANTLRInputStream(b.toString());
+        LzjAntlrLexer lexer = new LzjAntlrLexer(inputStream);
+        return lexer;
+    }
+
 
     /**
      * get the AreasVariables
@@ -104,5 +120,11 @@ public class Utils {
         return areas;
     }
 
+
+    public static LzjAntlrParser getContext(LzjAntlrLexer lexer) {
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        LzjAntlrParser parser = new LzjAntlrParser(tokens);
+        return parser;
+    }
 
 }
