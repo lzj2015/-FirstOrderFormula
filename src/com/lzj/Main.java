@@ -2,6 +2,7 @@ package com.lzj;
 
 import com.lzj.antlrs.LzjAntlrParser;
 import com.lzj.common.LParseListener;
+import com.lzj.common.SimplifyListener;
 import com.lzj.utils.Utils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,7 @@ public class Main extends Application {
         LzjAntlrParser.ProgramContext root = parser.program();
         Utils.getAreasVariable(root);  // using first
 
-        Trees.inspect(root, parser);
+       // Trees.inspect(root, parser);
 //1
         LParseListener lParseListener = new LParseListener();
         ParseTreeWalker walker = new ParseTreeWalker();
@@ -36,8 +37,8 @@ public class Main extends Application {
 //2
         LzjAntlrParser parserVar = Utils.getContext(Utils.getLexer(LParseListener.allSentences));
         LzjAntlrParser.ProgramContext rootVar  = parserVar.program();
-       // Trees.inspect(rootVar, parserVar);
-
+       Trees.inspect(rootVar, parserVar);
+        SimplifyListener listener = new SimplifyListener();
 
         // launch(args);
     }

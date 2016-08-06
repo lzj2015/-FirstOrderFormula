@@ -7,27 +7,15 @@ public class Area {
     public String predicate;
     public String var;
     public boolean result;
-    public String not = "";
 
-    public String op;
 
     @Override
     public String toString() {
-        return not + predicate + "(" + var + ") " + (result ? "true" : "false");
+        return result ? "" : "~" + predicate + "(" + var + ") ";
     }
 
-    public boolean compare(Area area) {
-        return  predicate.equals(area.predicate);
+    public boolean compare(String predicate, String var) {
+        return predicate.equals(this.predicate) && var.equals(this.var);
     }
 
-    public Area() {
-    }
-
-    public Area(Area area) {
-        this.predicate = area.predicate;
-        this.var = area.var;
-        this.result = area.result;
-        this.not = area.not;
-        this.op = area.op;
-    }
 }

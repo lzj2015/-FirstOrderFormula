@@ -100,7 +100,9 @@ public class Utils {
          LzjAntlrParser.PreStateContext ctx = (LzjAntlrParser.PreStateContext) root;
             Area area = new Area();
             if (ctx.not_op() != null) {
-                area.not = ctx.not_op().getText();
+                area.result = false;
+            }else {
+                area.result = true;
             }
             area.var = ctx.var().getText();
             area.predicate = ctx.predicate().getText();
