@@ -2,14 +2,12 @@ package com.lzj;
 
 import com.lzj.antlrs.LzjAntlrParser;
 import com.lzj.common.LParseListener;
-import com.lzj.common.SimplifyListener;
 import com.lzj.utils.Utils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 public class Main extends Application {
@@ -35,11 +33,12 @@ public class Main extends Application {
         ParseTreeWalker walker = new ParseTreeWalker();
         walker.walk(lParseListener, root);
 //2
-        LzjAntlrParser parserVar = Utils.getContext(Utils.getLexer(LParseListener.allSentences));
-        LzjAntlrParser.ProgramContext rootVar  = parserVar.program();
-       Trees.inspect(rootVar, parserVar);
-        SimplifyListener listener = new SimplifyListener();
-
+//        LzjAntlrParser parserVar = Utils.getContext(Utils.getLexer(LParseListener.allSentences));
+//        LzjAntlrParser.ProgramContext rootVar  = parserVar.program();
+//       Trees.inspect(rootVar, parserVar);
+//        SimplifyListener listener = new SimplifyListener();
+//        ParseTreeWalker walkera = new ParseTreeWalker();
+//        walkera.walk(listener, rootVar);
         // launch(args);
     }
 
